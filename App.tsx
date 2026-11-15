@@ -12,8 +12,8 @@ import {
 } from 'lucide-react';
 import { IELTS_TOPICS_2026 } from './data/topics2026';
 import type { EvaluationResult, IeltsTopic, TaskType } from './types/ielts';
-import { RubricModal } from './components/RubricModal';
-import { EvaluationPanel } from './components/EvaluationPanel';
+// import { RubricModal } from './components/RubricModal';
+// import { EvaluationPanel } from './components/EvaluationPanel';
 
 const DRAFT_STORAGE_PREFIX = 'ielts_essay_draft_';
 const RESULTS_STORAGE_KEY = 'ielts_evaluation_results_v1';
