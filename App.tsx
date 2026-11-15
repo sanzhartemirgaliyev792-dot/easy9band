@@ -10,7 +10,7 @@ import {
   Shuffle,
   Trash2,
 } from 'lucide-react';
-import { IELTS_TOPICS_2026 } from './data/topics2026';
+// import { IELTS_TOPICS_2026 } from './data/topics2026';
 import type { EvaluationResult, IeltsTopic, TaskType } from './types/ielts';
 // import { RubricModal } from './components/RubricModal';
 // import { EvaluationPanel } from './components/EvaluationPanel';
