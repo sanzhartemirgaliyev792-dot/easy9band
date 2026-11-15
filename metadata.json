@@ -1,0 +1,8 @@
+{
+  "name": "IELTS Studio",
+  "description": "Минималистичный тренажер для подготовки к IELTS Writing Task 1 и Task 2 с проверкой по официальным критериям и улучшением текста до уровня Band 8.5.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
