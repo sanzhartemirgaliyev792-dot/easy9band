@@ -1,4 +1,7 @@
 {
-  "buildCommand": "bun run build",
-  "outputDirectory": "dist"
+  "framework": "vite",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/evaluate.ts": { "maxDuration": 60 }
+  }
 }
