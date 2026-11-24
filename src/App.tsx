@@ -14,6 +14,8 @@ import { IELTS_TOPICS_2026 } from './data/topics2026';
 import type { EvaluationResult, IeltsTopic, TaskType } from './types/ielts';
 import { RubricModal } from './components/RubricModal';
 import { EvaluationPanel } from './components/EvaluationPanel';
+import { ReadingTest } from './components/ReadingTest';
+import { ListeningTest } from './components/ListeningTest';
 
 const DRAFT_STORAGE_PREFIX = 'ielts_essay_draft_';
 const RESULTS_STORAGE_KEY = 'ielts_evaluation_results_v1';
@@ -43,7 +45,16 @@ function formatTableForPrompt(topic: IeltsTopic): string {
   return `${headerLine}\n${rows}`;
 }
 
+type AppModule = 'writing' | 'reading' | 'listening';
+
+const MODULES: { id: AppModule; label: string }[] = [
+  { id: 'writing', label: 'Writing' },
+  { id: 'reading', label: 'Reading' },
+  { id: 'listening', label: 'Listening' },
+];
+
 export default function App() {
+  const [activeModule, setActiveModule] = useState<AppModule>('writing');
   const [taskType, setTaskType] = useState<TaskType>('task2');
 
   const taskTopics = useMemo(
@@ -269,6 +280,28 @@ export default function App() {
             IELTS Studio
           </a>
 
+          <div
+            role="tablist"
+            aria-label="Раздел IELTS"
+            className="flex items-center gap-1 rounded-lg border border-white/[0.09] bg-white/[0.03] p-1"
+          >
+            {MODULES.map((module) => (
+              <button
+                key={module.id}
+                type="button"
+                role="tab"
+                aria-selected={activeModule === module.id}
+                onClick={() => setActiveModule(module.id)}
+                className={`rounded-md px-2.5 sm:px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
+                  activeModule === module.id ? 'bg-white/[0.1] text-zinc-100' : 'text-zinc-400 hover:text-zinc-100'
+                }`}
+              >
+                {module.label}
+              </button>
+            ))}
+          </div>
+
+          {activeModule === 'writing' ? (
           <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
             <a
               href="#editor-section"
@@ -290,10 +323,17 @@ export default function App() {
               Шкала IELTS
             </button>
           </nav>
+          ) : (
+            <div className="hidden md:block w-[200px]" aria-hidden="true" />
+          )}
         </div>
       </header>
 
       {/* Main Two-Column Studio Workspace */}
+      {activeModule === 'reading' && <ReadingTest />}
+      {activeModule === 'listening' && <ListeningTest />}
+
+      {activeModule === 'writing' && (
       <main className="mx-auto w-full max-w-[1380px] flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           {/* Left Column: Writing Workspace */}
@@ -583,6 +623,7 @@ export default function App() {
           </div>
         </div>
       </main>
+      )}
 
       <RubricModal isOpen={isRubricOpen} onClose={() => setIsRubricOpen(false)} />
     </div>
