@@ -86,16 +86,10 @@ function QuestionRow({ question, value, disabled, verdict, onChange }: RowProps)
               </div>
             </fieldset>
           ) : (
-                    {option}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-          ) : (
             <CompletionPrompt question={question} value={value} disabled={disabled} onChange={onChange} />
           )}
           {verdict !== undefined && (
-            <p className={`mt-2 text-sm font-medium ${verdict ? "text-emerald-700 dark:text-emerald-400" : "text-red-700 dark:text-red-400"}
+            <p className={`mt-2 text-sm font-medium ${verdict ? "text-emerald-700 dark:text-emerald-400" : "text-red-700 dark:text-red-400"}`}>
               {verdict ? "Верно" : "Неверно"}
             </p>
           )}
