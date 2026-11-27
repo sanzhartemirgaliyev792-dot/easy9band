@@ -1,29 +1,23 @@
 import { GoogleGenAI, Type } from '@google/genai';
 
-const MODEL_CANDIDATES = ['gemini-4-hydrogen', 'gemini-3.1-flash-lite'] as const;
+const MODEL_CANDIDATES = ['gemini-3.1-flash-lite'] as const;
 
-const SYSTEM_INSTRUCTION = `You are a strict, conservative, and authoritative Senior British IELTS Examiner evaluating IELTS Writing Task 1 and Task 2 submissions under strict official IELTS band descriptors.
-Оценивай работу максимально строго и объективно по 4 официальным критериям IELTS Writing:
-1. Task Achievement (для Task 1) или Task Response (для Task 2)
+const SYSTEM_INSTRUCTION = `You are a strict, conservative British IELTS Examiner evaluating IELTS Writing Task 1 and Task 2 under official IELTS band descriptors.
+Оценивай строго и объективно по 4 критериям IELTS Writing (на русском языке, кратко и по делу):
+1. Task Achievement (Task 1) / Task Response (Task 2)
 2. Coherence & Cohesion
 3. Lexical Resource
 4. Grammatical Range & Accuracy
 
-Жёсткая калибровка шкалы (строго против завышения баллов):
-- Никогда не завышай баллы ("Do not inflate scores" / "Never give leniency points"). Работы с базовой грамотностью, но без глубокого анализа, сильных коллокаций и сложного синтаксиса должны получать реалистичные 6.0–7.0, а не 7.5–8.5.
-- Потолок **6.5–7.0** по критерию:
-  * **Task Achievement / Task Response**: если в Task 1 пересказ цифр носит в основном последовательный/описательный характер без чёткого выделения главных контрастов, аномалий или ключевых сдвигов; если в Task 2 позиция выражена, но аргументы раскрыты поверхностно или с шаблонными примерами.
-  * **Coherence & Cohesion**: если абзацы логичны, но переходы местами механические, повторяются однотипные связки или не хватает гибкой референции/согласования внутри абзацев.
-  * **Lexical Resource**: если текст корректный, но лексика базовая/повторяющаяся (например, частые повторы простых глаголов *rose/fell/went up/went down/increased/decreased* или нехватка точных академических коллокаций и менее частой лексики).
-  * **Grammatical Range & Accuracy**: если ошибок мало или они мелкие, но синтаксис преимущественно простой/составной с ограниченным набором сложных структур, либо есть ошибки в артиклях, предлогах, согласовании и пунктуации.
-- Баллы **8.0+** ставь ТОЛЬКО за действительно сильную работу: точный выбор данных и обобщений без упущений, естественную и разнообразную академическую лексику с точными коллокациями, гибкий контроль сложных грамматических конструкций и минимальное количество мелких помарок.
-- При сомнении между двумя соседними значениями на шкале 0.5 всегда выбирай **меньшее** (более строгое) значение.
-- Учитывай объём: недобор слов (<150 для Task 1, <250 для Task 2) строго снижает Task Achievement / Task Response.
-- Баллы по каждому из 4 критериев выставляй строго от 0.0 до 9.0 с шагом 0.5.
-- Выведи общий Band Score (overallBand) строго по официальным правилам округления IELTS: среднее арифметическое 4 критериев, округлённое до ближайших 0.5 (.25 -> .5, .75 -> целое вверх).
-- В поле examinerSummary и в feedback по каждому из 4 критериев на русском языке подробно разбери слабые места и объясни, **почему баллы не выше** (какие конкретные упущения, повторы или ограничения по структуре/лексике помешали), обязательно приводя точные английские цитаты из текста кандидата.
-- В разделе corrections укажи конкретные грамматические, лексические и стилистические ошибки/слабые места из текста пользователя в формате «Было» -> «Как лучше на Band 8.5» + краткое пояснение на русском.
-- В поле rewrittenEssay полностью перепиши работу кандидата на уровень **Band 8.5+** на естественном академическом английском, сохранив исходные идеи и факты пользователя, но улучшив структуру, связность, лексику и синтаксис. Раздели абзацы через двойной перенос строки.`;
+Правила калибровки:
+- Не завышай баллы. Обычная работа без глубокого анализа, сильных коллокаций и сложного синтаксиса — реалистично 6.0–7.0.
+- 8.0+ ставь только за сильную работу с точной лексикой и сложным синтаксисом.
+- При сомнении между двумя значениями на 0.5 выбирай меньшее.
+- Учитывай объём слов (<150 для Task 1, <250 для Task 2 снижает Task Achievement / Task Response).
+- Баллы критериев: 0.0–9.0 с шагом 0.5. overallBand — среднее 4 критериев, округлённое до ближайшего 0.5 (.25 -> .5, .75 -> вверх).
+- В feedback и examinerSummary приводи конкретные цитаты из текста кандидата и объясняй, почему балл не выше.
+- В corrections дай до 4 ключевых правок (Было -> Как лучше на Band 8.5 + краткое пояснение).
+- В rewrittenEssay перепиши эссе на уровень Band 8.5+, сохранив смысл и идеи автора. Раздели абзацы через \\n\\n.`;
 
 const RESPONSE_SCHEMA = {
   type: Type.OBJECT,
@@ -34,7 +28,7 @@ const RESPONSE_SCHEMA = {
     },
     cefrLevel: {
       type: Type.STRING,
-      description: 'Соответствующий уровень CEFR, например "B2", "C1" или "C2".',
+      description: 'Уровень CEFR, например "B2", "C1" или "C2".',
     },
     examinerSummary: {
       type: Type.STRING,
@@ -49,7 +43,7 @@ const RESPONSE_SCHEMA = {
           name: {
             type: Type.STRING,
             description:
-              'Официальное название критерия на английском (Task Response / Task Achievement, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy).',
+              'Официальное название критерия (Task Response / Task Achievement, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy).',
           },
           band: {
             type: Type.NUMBER,
@@ -57,7 +51,7 @@ const RESPONSE_SCHEMA = {
           },
           feedback: {
             type: Type.STRING,
-            description: 'Конструктивный разбор по критерию на русском языке с примерами из текста.',
+            description: 'Краткий разбор по критерию на русском языке с примерами из текста.',
           },
         },
         required: ['name', 'band', 'feedback'],
@@ -65,25 +59,25 @@ const RESPONSE_SCHEMA = {
     },
     corrections: {
       type: Type.ARRAY,
-      description: 'Список конкретных ошибок из текста пользователя в формате Было -> Как лучше на Band 8.5.',
+      description: 'Список ключевых правок в формате Было -> Как лучше на Band 8.5.',
       items: {
         type: Type.OBJECT,
         properties: {
           category: {
             type: Type.STRING,
-            description: 'Категория ошибки: "Грамматика", "Лексика" или "Стиль и связность".',
+            description: 'Категория: "Грамматика", "Лексика" или "Стиль и связность".',
           },
           original: {
             type: Type.STRING,
-            description: 'Точный фрагмент с ошибкой или слабой формулировкой из текста пользователя (Было).',
+            description: 'Фрагмент из текста пользователя (Было).',
           },
           improved: {
             type: Type.STRING,
-            description: 'Улучшенный вариант на уровень Band 8.5 (Как лучше на Band 8.5).',
+            description: 'Улучшенный вариант на Band 8.5 (Как лучше на Band 8.5).',
           },
           explanation: {
             type: Type.STRING,
-            description: 'Краткое пояснение ошибки на русском языке.',
+            description: 'Краткое пояснение на русском языке.',
           },
         },
         required: ['category', 'original', 'improved', 'explanation'],
@@ -91,12 +85,11 @@ const RESPONSE_SCHEMA = {
     },
     rewrittenEssay: {
       type: Type.STRING,
-      description:
-        'Полностью переписанное на уровень Band 8.5 эссе на английском языке, сохраняющее исходные аргументы пользователя.',
+      description: 'Переписанное на уровень Band 8.5 эссе на английском языке с сохранением идей автора.',
     },
     rewriteHighlights: {
       type: Type.ARRAY,
-      description: '2–3 ключевых приема, примененных при улучшении эссе до Band 8.5 (на русском).',
+      description: '2–3 ключевых приёма улучшения до Band 8.5 (на русском).',
       items: {
         type: Type.STRING,
       },
@@ -130,9 +123,13 @@ const MAX_ESSAY_CHARS = 20_000;
 const MAX_PROMPT_CHARS = 6_000;
 
 function getStatus(err: unknown): number {
-  return typeof err === 'object' && err !== null && 'status' in err && typeof (err as { status?: unknown }).status === 'number'
-    ? (err as { status: number }).status
-    : 0;
+  if (typeof err === 'object' && err !== null) {
+    const anyErr = err as { status?: unknown; code?: unknown; error?: { code?: unknown } };
+    if (typeof anyErr.status === 'number') return anyErr.status;
+    if (typeof anyErr.code === 'number') return anyErr.code;
+    if (typeof anyErr.error?.code === 'number') return anyErr.error.code;
+  }
+  return 0;
 }
 
 export async function evaluateEssay(rawBody: unknown): Promise<EvaluateResult> {
@@ -166,10 +163,10 @@ export async function evaluateEssay(rawBody: unknown): Promise<EvaluateResult> {
       taskType === 'task1' ? 'IELTS Writing Task 1 (Academic Report, min 150 words)' : 'IELTS Writing Task 2 (Essay, min 250 words)';
     const userPrompt = [
       `Тип задания: ${taskLabel}`,
-      `Формулировка темы:\n${topicPrompt}`,
-      tableDataText ? `Исходные данные таблицы:\n${tableDataText}` : '',
-      `Количество слов у кандидата: ${wordCount}`,
-      `Текст работы кандидата:\n\"\"\"\n${essayText}\n\"\"\"`,
+      `Тема:\n${topicPrompt}`,
+      tableDataText ? `Данные таблицы:\n${tableDataText}` : '',
+      `Слов: ${wordCount}`,
+      `Эссе:\n"""\n${essayText}\n"""`,
     ]
       .filter(Boolean)
       .join('\n\n');
@@ -189,6 +186,7 @@ export async function evaluateEssay(rawBody: unknown): Promise<EvaluateResult> {
             config: {
               systemInstruction: SYSTEM_INSTRUCTION,
               temperature: 0.1,
+              maxOutputTokens: 2200,
               responseMimeType: 'application/json',
               responseSchema: RESPONSE_SCHEMA,
             },
@@ -201,6 +199,11 @@ export async function evaluateEssay(rawBody: unknown): Promise<EvaluateResult> {
           const errStatus = getStatus(attemptErr);
 
           if (errStatus === 404 || msg.includes('404') || msg.includes('NOT_FOUND')) {
+            shouldTryNextModel = true;
+            break;
+          }
+
+          if (errStatus === 429 || msg.includes('429') || msg.includes('RESOURCE_EXHAUSTED')) {
             shouldTryNextModel = true;
             break;
           }
@@ -239,10 +242,9 @@ export async function evaluateEssay(rawBody: unknown): Promise<EvaluateResult> {
     const message = err instanceof Error ? err.message : String(err);
     const status = getStatus(err);
 
-    // Подробности пишем только в серверный лог, пользователю показываем нейтральные сообщения.
     console.error('Evaluation failed:', message);
 
-    if (status === 429 || message.includes('RESOURCE_EXHAUSTED')) {
+    if (status === 429 || message.includes('429') || message.includes('RESOURCE_EXHAUSTED')) {
       return { status: 429, body: { error: 'Сервис сейчас перегружен запросами. Подождите немного и попробуйте снова.' } };
     }
     if (status === 503 || message.includes('503') || message.includes('UNAVAILABLE')) {
