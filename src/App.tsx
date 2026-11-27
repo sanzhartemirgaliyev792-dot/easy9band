@@ -56,6 +56,25 @@ const MODULES: { id: AppModule; label: string }[] = [
 export default function App() {
   const [activeModule, setActiveModule] = useState<AppModule>('writing');
   const [taskType, setTaskType] = useState<TaskType>('task2');
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    try {
+      const saved = localStorage.getItem('easy9band_theme');
+      if (saved === 'light' || saved === 'dark') return saved;
+    } catch {
+      // ignore storage errors
+    }
+    return 'dark';
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle('dark', theme === 'dark');
+    try {
+      localStorage.setItem('easy9band_theme', theme);
+    } catch {
+      // ignore storage errors
+    }
+  }, [theme]);
 
   const taskTopics = useMemo(
     () => IELTS_TOPICS_2026.filter((t) => t.taskType === taskType),
@@ -300,6 +319,13 @@ export default function App() {
               </button>
             ))}
           </div>
+          <button
+  type="button"
+  onClick={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))}
+  className="rounded-lg border border-neutral-300 bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-900 transition hover:bg-neutral-200 sm:text-sm dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
+>
+  {theme === 'dark' ? 'Light' : 'Dark'}
+</button>
 
           {activeModule === 'writing' ? (
           <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
