@@ -287,84 +287,85 @@ export default function App() {
   const timerExpired = secondsLeft === 0;
   const wordProgressPercent = Math.min(100, Math.round((wordCount / minWords) * 100));
 
-  return (
+ return (
     <div className="min-h-screen bg-white text-black dark:bg-[#09090B] dark:text-[#F4F4F5] flex flex-col">
-        {/* Three-zone Top Navigation Bar */}
-        <header className="border-b border-neutral-200 dark:border-white/[0.07] bg-white/90 dark:bg-[#09090B]/90 backdrop-blur-md">
-          <div className="mx-auto flex max-w-[1380px] items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 h-16">
-            <a
-              href="#editor-section"
-              className="font-display text-base sm:text-lg font-semibold tracking-tight text-black dark:text-zinc-100 whitespace-nowrap shrink-0"
-            >
-              IELTS Studio
-            </a>
+      {/* Three-zone Top Navigation Bar */}
+      <header className="border-b border-neutral-200 dark:border-white/[0.07] bg-white/90 dark:bg-[#09090B]/90 backdrop-blur-md">
+        <div className="mx-auto flex max-w-[1380px] items-center justify-between gap-4 sm:gap-8 px-4 sm:px-6 lg:px-8 h-16">
+          <a
+            href="#editor-section"
+            className="font-display text-base sm:text-lg font-semibold tracking-tight text-black dark:text-zinc-100 whitespace-nowrap shrink-0"
+          >
+            IELTS Studio
+          </a>
 
-            <div
-              role="tablist"
-              aria-label="Раздел IELTS"
-              className="flex items-center gap-1 rounded-lg border border-neutral-200 dark:border-white/[0.09] bg-neutral-100 dark:bg-white/[0.03] p-1"
-            >
-              {MODULES.map((module) => (
-                <button
-                  key={module.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={activeModule === module.id}
-                  onClick={() => setActiveModule(module.id)}
-                  className={`rounded-md px-2.5 sm:px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
-                    activeModule === module.id
-                      ? 'bg-white text-black shadow-xs dark:bg-white/[0.1] dark:text-zinc-100'
-                      : 'text-neutral-700 hover:text-black dark:text-zinc-400 dark:hover:text-zinc-100'
-                  }`}
-                >
-                  {module.label}
-                </button>
-              ))}
-            </div>
-          </div>
-          <button
-  type="button"
-  onClick={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))}
-  className="rounded-lg border border-neutral-300 bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-900 transition hover:bg-neutral-200 sm:text-sm dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
->
-  {theme === 'dark' ? 'Light' : 'Dark'}
-</button>
-
-         {activeModule === 'writing' ? (
-            <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
-              <a
-                href="#editor-section"
-                className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0"
-              >
-                Тренажер
-              </a>
-              <a
-                href="#evaluation-section"
-                className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0"
-              >
-                Разбор
-              </a>
+          <div
+            role="tablist"
+            aria-label="Раздел IELTS"
+            className="flex items-center gap-1 rounded-lg border border-neutral-200 dark:border-white/[0.09] bg-neutral-100 dark:bg-white/[0.03] p-1"
+          >
+            {MODULES.map((module) => (
               <button
+                key={module.id}
                 type="button"
-                onClick={() => setIsRubricOpen(true)}
-                className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0 cursor-pointer"
+                role="tab"
+                aria-selected={activeModule === module.id}
+                onClick={() => setActiveModule(module.id)}
+                className={`rounded-md px-2.5 sm:px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
+                  activeModule === module.id
+                    ? 'bg-white text-black shadow-xs dark:bg-white/[0.1] dark:text-zinc-100'
+                    : 'text-neutral-700 hover:text-black dark:text-zinc-400 dark:hover:text-zinc-100'
+                }`}
               >
-                Шкала IELTS
+                {module.label}
               </button>
-            </nav>
-          ) : (
-            <div className="hidden md:block w-[200px]" aria-hidden="true" />
-          )}
+            ))}
+          </div>
+
+          <div className="flex items-center gap-4">
+            {activeModule === 'writing' ? (
+              <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
+                <a
+                  href="#editor-section"
+                  className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0"
+                >
+                  Тренажер
+                </a>
+                <a
+                  href="#evaluation-section"
+                  className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0"
+                >
+                  Разбор
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setIsRubricOpen(true)}
+                  className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0 cursor-pointer"
+                >
+                  Шкала IELTS
+                </button>
+              </nav>
+            ) : (
+              <div className="hidden md:block w-[200px]" aria-hidden="true" />
+            )}
+
+            <button
+              type="button"
+              onClick={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))}
+              className="rounded-lg border border-neutral-300 bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-900 transition hover:bg-neutral-200 sm:text-sm dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800 whitespace-nowrap shrink-0"
+            >
+              {theme === 'dark' ? 'Light' : 'Dark'}
+            </button>
+          </div>
         </div>
-      </div>
       </header>
 
-     {/* Main Two-Column Studio Workspace */}
+      {/* Main Two-Column Studio Workspace */}
       {activeModule === 'reading' && <ReadingScreen />}
       {activeModule === 'listening' && <ListeningTest />}
 
       {activeModule === 'writing' && (
-      <main className="mx-auto w-full max-w-[1380px] flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 bg-white text-black dark:bg-transparent dark:text-inherit">
+        <main className="mx-auto w-full max-w-[1380px] flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 bg-white text-black dark:bg-transparent dark:text-inherit">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           {/* Left Column: Writing Workspace */}
           <section id="editor-section" className="lg:col-span-7 space-y-5">
