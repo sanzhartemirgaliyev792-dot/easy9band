@@ -10,9 +10,14 @@
 
   html {
     font-family: var(--font-sans);
-    background-color: #09090B;
-    color: #F4F4F5;
+    background-color: #ffffff;
+    color: #09090b;
     scroll-behavior: smooth;
+  }
+
+  html.dark {
+    background-color: #09090b;
+    color: #f4f4f5;
   }
 
   h1, h2, h3, h4, .font-display {
@@ -25,7 +30,6 @@
   }
 }
 
-/* Subtle custom scrollbar for dark Linear-inspired surfaces */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -36,11 +40,19 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(9, 9, 11, 0.16);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
+  background: rgba(9, 9, 11, 0.28);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.22);
 }
 
