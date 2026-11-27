@@ -152,11 +152,11 @@ export function ListeningTest() {
                 setSectionIndex(index);
               }}
               className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors cursor-pointer ${
-                index === sectionIndex ? 'bg-white/[0.1] text-zinc-100' : 'text-zinc-400 hover:text-zinc-100'
+                index === sectionIndex ? 'bg-white text-neutral-900 shadow-xs dark:bg-white/[0.1] dark:text-zinc-100' : 'text-neutral-700 hover:text-neutral-950 dark:text-zinc-400 dark:hover:text-zinc-100'
               }`}
             >
               {s.title}
-              <span className="ml-2 font-mono-tabular text-xs text-zinc-500">
+              <span className="ml-2 font-mono-tabular text-xs text-neutral-600 dark:text-zinc-500">
                 {stats.perSection[index].answered}/{stats.perSection[index].total}
               </span>
             </button>
@@ -167,7 +167,7 @@ export function ListeningTest() {
           <button
             type="button"
             onClick={handleReset}
-            className="inline-flex items-center gap-2 rounded-lg border border-white/[0.09] bg-white/[0.03] px-3 py-2 text-xs font-medium text-zinc-200 transition-colors hover:bg-white/[0.08] cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-lg border border-neutral-300 bg-neutral-100 px-3 py-2 text-xs font-medium text-neutral-900 transition-colors hover:bg-neutral-200 dark:border-white/[0.09] dark:bg-white/[0.03] dark:text-zinc-200 dark:hover:bg-white/[0.08] cursor-pointer"
           >
             <RotateCcw className="h-4 w-4" />
             Сброс
@@ -196,13 +196,13 @@ export function ListeningTest() {
       )}
 
       {/* Audio player */}
-      <section className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 sm:p-6">
+      <section className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 sm:p-6 dark:border-white/[0.07] dark:bg-white/[0.02]">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-start gap-3">
             <Headphones className="mt-1 h-5 w-5 text-blue-400" />
             <div>
-              <h2 className="font-display text-lg font-semibold text-zinc-50">{section.title}</h2>
-              <p className="mt-0.5 text-sm text-zinc-400">{section.context}</p>
+              <h2 className="font-display text-lg font-semibold text-neutral-950 dark:text-zinc-50">{section.title}</h2>
+              <p className="mt-0.5 text-sm text-neutral-800 dark:text-zinc-400">{section.context}</p>
             </div>
           </div>
 
