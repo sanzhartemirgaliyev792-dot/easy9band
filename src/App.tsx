@@ -358,12 +358,12 @@ export default function App() {
         </div>
       </header>
 
-      {/* Main Two-Column Studio Workspace */}
+     {/* Main Two-Column Studio Workspace */}
       {activeModule === 'reading' && <ReadingScreen />}
       {activeModule === 'listening' && <ListeningTest />}
 
       {activeModule === 'writing' && (
-      <main className="mx-auto w-full max-w-[1380px] flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <main className="mx-auto w-full max-w-[1380px] flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 bg-white text-black dark:bg-transparent dark:text-inherit">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           {/* Left Column: Writing Workspace */}
           <section id="editor-section" className="lg:col-span-7 space-y-5">
