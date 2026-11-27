@@ -15,7 +15,7 @@ import type { EvaluationResult, IeltsTopic, TaskType } from './types/ielts';
 import { RubricModal } from './components/RubricModal';
 import { EvaluationPanel } from './components/EvaluationPanel';
 import { ListeningTest } from './components/ListeningTest';
-import { ReadingScreen } from './reading/ReadingScreen';
+import ReadingScreen from './reading/ReadingScreen';
 
 const DRAFT_STORAGE_PREFIX = 'ielts_essay_draft_';
 const RESULTS_STORAGE_KEY = 'ielts_evaluation_results_v1';
