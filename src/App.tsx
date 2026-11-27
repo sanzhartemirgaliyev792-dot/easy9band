@@ -14,8 +14,8 @@ import { IELTS_TOPICS_2026 } from './data/topics2026';
 import type { EvaluationResult, IeltsTopic, TaskType } from './types/ielts';
 import { RubricModal } from './components/RubricModal';
 import { EvaluationPanel } from './components/EvaluationPanel';
-import { ReadingTest } from './components/ReadingTest';
 import { ListeningTest } from './components/ListeningTest';
+import { ReadingScreen } from './reading/ReadingScreen';
 
 const DRAFT_STORAGE_PREFIX = 'ielts_essay_draft_';
 const RESULTS_STORAGE_KEY = 'ielts_evaluation_results_v1';
@@ -330,7 +330,7 @@ export default function App() {
       </header>
 
       {/* Main Two-Column Studio Workspace */}
-      {activeModule === 'reading' && <ReadingTest />}
+      {activeModule === 'reading' && <ReadingScreen />}
       {activeModule === 'listening' && <ListeningTest />}
 
       {activeModule === 'writing' && (
