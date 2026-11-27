@@ -1,4 +1,4 @@
-import passagesSlot1 from './passages.slot1.json' with { type: 'json' };
+import rawPassages from './passages.slot1.json' with { type: 'json' };
 
 export type Paragraph = {
   label: string;
