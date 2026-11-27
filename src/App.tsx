@@ -330,28 +330,28 @@ export default function App() {
   {theme === 'dark' ? 'Light' : 'Dark'}
 </button>
 
-          {activeModule === 'writing' ? (
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
-            <a
-              href="#editor-section"
-              className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0"
-            >
-              Тренажер
-            </a>
-            <a
-              href="#evaluation-section"
-              className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0"
-            >
-              Разбор
-            </a>
-            <button
-              type="button"
-              onClick={() => setIsRubricOpen(true)}
-              className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0 cursor-pointer"
-            >
-              Шкала IELTS
-            </button>
-          </nav>
+         {activeModule === 'writing' ? (
+            <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
+              <a
+                href="#editor-section"
+                className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0"
+              >
+                Тренажер
+              </a>
+              <a
+                href="#evaluation-section"
+                className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0"
+              >
+                Разбор
+              </a>
+              <button
+                type="button"
+                onClick={() => setIsRubricOpen(true)}
+                className="transition-colors hover:text-zinc-100 whitespace-nowrap shrink-0 cursor-pointer"
+              >
+                Шкала IELTS
+              </button>
+            </nav>
           ) : (
             <div className="hidden md:block w-[200px]" aria-hidden="true" />
           )}
