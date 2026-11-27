@@ -1,0 +1,772 @@
+[
+  {
+    "id": "p1-001",
+    "passageSlot": 1,
+    "topic": "Desalination & Water Infrastructure",
+    "title": "Desalination Plants on Arid Coasts",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Coastal cities in dry regions increasingly turn to seawater desalination to supplement dwindling groundwater and reservoir supplies. In reverse-osmosis plants, seawater is forced under high pressure through semi-permeable membranes that separate salt and other dissolved minerals from freshwater. While the technology once relied heavily on fuel-burning steam turbines, modern membrane systems require less energy per cubic metre than older thermal designs, making large-scale production feasible in areas with minimal rainfall."
+      },
+      {
+        "label": "B",
+        "text": "Despite lower power consumption than earlier methods, desalination remains energy-intensive compared with conventional river or groundwater extraction. High-pressure pumps run continuously, so utility bills rise sharply whenever electricity tariffs climb. To cut operating costs and emissions, several coastal facilities now link their intake and pumping stations to dedicated solar farms or wind turbines, though intermittent renewable output still requires grid backup or storage to keep water flowing day and night."
+      },
+      {
+        "label": "C",
+        "text": "Another practical concern is brine—the highly concentrated salt solution left behind after freshwater is extracted. Discharging dense brine back into shallow coastal bays can reduce oxygen levels near the seabed and stress bottom-dwelling marine life if it fails to disperse quickly. Engineers address this by extending outfall pipes further offshore, mixing brine with treated wastewater or cooling water before release, and selecting sites with stronger currents."
+      },
+      {
+        "label": "D",
+        "text": "Distribution infrastructure often determines whether desalinated water reaches households reliably. Because coastal plants sit near sea level while inland reservoirs or city districts may lie higher up, pumping water uphill adds substantial cost and requires well-maintained pipelines to prevent leaks. In regions where aging pipes lose a large share of treated water underground, upgrading distribution networks can deliver immediate gains alongside new treatment capacity."
+      },
+      {
+        "label": "E",
+        "text": "Even with these hurdles, desalination has shifted from an emergency measure during severe droughts to a standard component of long-term water planning. Municipal planners increasingly treat it as a weather-independent reserve that buffers cities against multi-year dry spells. Rather than replacing conservation or watershed protection, it usually operates alongside water recycling and demand management as part of a broader supply mix."
+      }
+    ],
+    "questions": [
+      {
+        "number": 1,
+        "type": "tfng",
+        "prompt": "Modern reverse-osmosis desalination plants use less energy per cubic metre than older thermal desalination systems.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "A",
+        "explanation": "В абзаце A указано, что современные мембранные системы требуют меньше энергии на кубометр, чем старые термальные."
+      },
+      {
+        "number": 2,
+        "type": "tfng",
+        "prompt": "Solar and wind power completely eliminate the need for grid electricity in all coastal desalination plants.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "FALSE",
+        "evidenceParagraph": "B",
+        "explanation": "Из-за прерывистой генерации ВИЭ нужен резерв от сети или накопители."
+      },
+      {
+        "number": 3,
+        "type": "tfng",
+        "prompt": "Discharging concentrated brine into shallow coastal water can harm organisms living near the seabed if dispersion is poor.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "C",
+        "explanation": "При слабом рассеивании рассол снижает уровень кислорода у дна и создаёт нагрузку на донную фауну."
+      },
+      {
+        "number": 4,
+        "type": "tfng",
+        "prompt": "Desalinated water is always cheaper to distribute than water pumped from natural lakes.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "NOT GIVEN",
+        "evidenceParagraph": "D",
+        "explanation": "Прямого сравнения итоговой стоимости доставки с озёрной водой в тексте нет."
+      },
+      {
+        "number": 5,
+        "type": "tfng",
+        "prompt": "Leaking underground pipes can reduce the amount of treated water that actually reaches consumers.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "D",
+        "explanation": "В старых трубах часть очищенной воды теряется под землёй до подачи потребителям."
+      },
+      {
+        "number": 6,
+        "type": "tfng",
+        "prompt": "Most municipalities view desalination as a substitute for water conservation programmes.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "FALSE",
+        "evidenceParagraph": "E",
+        "explanation": "Опреснение не заменяет водосбережение, а работает вместе с ним и другими мерами."
+      },
+      {
+        "number": 7,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Reverse osmosis pushes seawater through ________ under high pressure to remove salt and minerals.",
+        "answer": "semi-permeable membranes",
+        "acceptedAnswers": ["semi-permeable membranes", "membranes"],
+        "evidenceParagraph": "A",
+        "explanation": "Соль и растворённые минералы отделяются через полупроницаемые мембраны."
+      },
+      {
+        "number": 8,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Continuous operation of ________ means higher power prices raise running costs.",
+        "answer": "high-pressure pumps",
+        "acceptedAnswers": ["high-pressure pumps"],
+        "evidenceParagraph": "B",
+        "explanation": "Насосы высокого давления работают непрерывно."
+      },
+      {
+        "number": 9,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Leftover concentrated salt water, known as ________, can lower seabed oxygen levels.",
+        "answer": "brine",
+        "acceptedAnswers": ["brine"],
+        "evidenceParagraph": "C",
+        "explanation": "Концентрированный солевой раствор после опреснения называется brine."
+      },
+      {
+        "number": 10,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Operators may lengthen ________ pipes or dilute the discharge before releasing it.",
+        "answer": "outfall",
+        "acceptedAnswers": ["outfall"],
+        "evidenceParagraph": "C",
+        "explanation": "Инженеры удлиняют выпускные трубы (outfall pipes) дальше от берега."
+      },
+      {
+        "number": 11,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Moving water to higher elevation requires ________ and intact pipelines.",
+        "answer": "pumping water",
+        "acceptedAnswers": ["pumping water", "pumping"],
+        "evidenceParagraph": "D",
+        "explanation": "Подача на возвышенности требует перекачки воды и исправных труб."
+      },
+      {
+        "number": 12,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Officials use desalination to protect cities during ________ dry spells.",
+        "answer": "multi-year",
+        "acceptedAnswers": ["multi-year"],
+        "evidenceParagraph": "E",
+        "explanation": "Опреснение служит буфером при многолетних засухах."
+      },
+      {
+        "number": 13,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Planners combine desalination with ________ and demand management.",
+        "answer": "water recycling",
+        "acceptedAnswers": ["water recycling"],
+        "evidenceParagraph": "E",
+        "explanation": "Применяется в связке с повторным использованием воды (water recycling) и управлением спросом."
+      }
+    ]
+  },
+  {
+    "id": "p1-002",
+    "passageSlot": 1,
+    "topic": "Logistics & Warehouse Automation",
+    "title": "Automated Warehouses and Order Fulfilment",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Large retail and grocery chains increasingly rely on automated warehouses to handle high volumes of online orders quickly and accurately. Inside these facilities, wheeled robots carry shelving units to human packers, or automated cranes move pallets along narrow aisles without lighting or heating tailored to people. By shifting routine transport to machines, operators aim to cut order-processing times and reduce errors caused by fatigue during peak sales periods."
+      },
+      {
+        "label": "B",
+        "text": "Transitioning from manual picking to automation requires heavy upfront investment. Beyond buying robots and conveyor systems, companies must reinforce warehouse floors so heavy loads do not cause cracking or uneven settling, install high-speed wireless networks, and integrate warehouse software with existing inventory and delivery systems. Because payback periods can stretch over several years, smaller retailers often lease space in shared automated hubs rather than building their own."
+      },
+      {
+        "label": "C",
+        "text": "Software coordination is frequently more demanding than the physical hardware itself. When hundreds of autonomous units navigate the same floor simultaneously, routing algorithms must prevent traffic bottlenecks, balance battery charging cycles, and prioritize urgent shipments. Even a minor software glitch or barcode-scanning failure can halt an entire aisle until an engineer intervenes, meaning reliability depends heavily on continuous monitoring and maintenance."
+      },
+      {
+        "label": "D",
+        "text": "Work inside automated centres changes rather than disappears. Repetitive walking across vast halls is reduced, yet staff are still needed to handle damaged packaging, unpack irregular items that gripping arms cannot lift cleanly, and resolve exceptions when systems flag a mismatch. Some warehouse unions and researchers also note that faster pacing and closer digital tracking can create new forms of workplace pressure if targets are set too aggressively."
+      },
+      {
+        "label": "E",
+        "text": "Location choices also shape how well automation pays off. Warehouses placed close to dense urban neighbourhoods shorten last-mile delivery times, but land there is scarce and expensive, forcing builders to stack storage higher and design compact layouts. Facilities farther out enjoy cheaper land and larger footprints, yet longer trips to customers can offset part of the savings achieved inside the building."
+      }
+    ],
+    "questions": [
+      {
+        "number": 1,
+        "type": "tfng",
+        "prompt": "Automated warehouses are used solely by large grocery chains.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "FALSE",
+        "evidenceParagraph": "A",
+        "explanation": "Используются крупными ритейлерами и продуктовыми сетями, но не только сетями супермаркетов."
+      },
+      {
+        "number": 2,
+        "type": "tfng",
+        "prompt": "Reinforcing warehouse floors can be necessary before installing heavy automated equipment.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "B",
+        "explanation": "Полы укрепляют, чтобы тяжёлые нагрузки не вызывали трещин и проседания."
+      },
+      {
+        "number": 3,
+        "type": "tfng",
+        "prompt": "Software issues can stop movement in part of a warehouse even when the physical robots are intact.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "C",
+        "explanation": "Сбой ПО или сканера штрихкодов способен остановить целый проход."
+      },
+      {
+        "number": 4,
+        "type": "tfng",
+        "prompt": "Automation has eliminated all physical handling of items inside modern warehouses.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "FALSE",
+        "evidenceParagraph": "D",
+        "explanation": "Сотрудники продолжают обрабатывать повреждённую упаковку и нестандартные товары."
+      },
+      {
+        "number": 5,
+        "type": "tfng",
+        "prompt": "Aggressive performance targets can increase stress for workers despite reduced walking distances.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "D",
+        "explanation": "Жёсткие цели и быстрый темп при цифровом контроле могут усиливать давление на сотрудников."
+      },
+      {
+        "number": 6,
+        "type": "tfng",
+        "prompt": "Suburban warehouses always have lower total delivery costs than urban ones.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "NOT GIVEN",
+        "evidenceParagraph": "E",
+        "explanation": "Указано, что долгие поездки до клиентов могут частично съедать экономию, но абсолютного вывода нет."
+      },
+      {
+        "number": 7,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Machines help lower mistakes linked to ________ during busy shopping periods.",
+        "answer": "fatigue",
+        "acceptedAnswers": ["fatigue"],
+        "evidenceParagraph": "A",
+        "explanation": "Снижение ошибок, вызванных усталостью в пиковые периоды продаж."
+      },
+      {
+        "number": 8,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Smaller firms may rent space in ________ instead of funding a whole facility alone.",
+        "answer": "automated hubs",
+        "acceptedAnswers": ["automated hubs"],
+        "evidenceParagraph": "B",
+        "explanation": "Аренда площадей в общих автоматизированных хабах."
+      },
+      {
+        "number": 9,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Algorithms must manage routes, ________ intervals, and priority orders.",
+        "answer": "battery charging",
+        "acceptedAnswers": ["battery charging"],
+        "evidenceParagraph": "C",
+        "explanation": "Балансировка циклов зарядки батарей."
+      },
+      {
+        "number": 10,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Workers still deal with ________ or oddly shaped goods that robots struggle with.",
+        "answer": "damaged packaging",
+        "acceptedAnswers": ["damaged packaging"],
+        "evidenceParagraph": "D",
+        "explanation": "Работа с повреждённой упаковкой (damaged packaging)."
+      },
+      {
+        "number": 11,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "High property costs near cities encourage ________ and vertical storage.",
+        "answer": "compact layouts",
+        "acceptedAnswers": ["compact layouts"],
+        "evidenceParagraph": "E",
+        "explanation": "Компактная планировка при высокой стоимости земли."
+      },
+      {
+        "number": 12,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Savings made inside the warehouse may be partly lost on longer ________.",
+        "answer": "trips",
+        "acceptedAnswers": ["trips", "customer trips"],
+        "evidenceParagraph": "E",
+        "explanation": "Более длинные поездки к клиентам (trips to customers)."
+      },
+      {
+        "number": 13,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Smooth operation relies on constant ________ and technical repairs.",
+        "answer": "monitoring",
+        "acceptedAnswers": ["monitoring"],
+        "evidenceParagraph": "C",
+        "explanation": "Непрерывный мониторинг и обслуживание."
+      }
+    ]
+  },
+  {
+    "id": "p1-003",
+    "passageSlot": 1,
+    "topic": "Urban Mobility & Transport",
+    "title": "Urban Bike-Sharing Systems",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Public bike-sharing schemes have expanded across hundreds of cities as a low-cost way to connect transit stops with final destinations. Early systems relied on fixed docking stations where riders inserted a smart card or key to release a bicycle, whereas newer dockless fleets use GPS locks and smartphone apps so users can park within designated zones. Advocates argue that shared bikes ease crowding on short bus or metro trips and offer an affordable alternative to short taxi rides."
+      },
+      {
+        "label": "B",
+        "text": "Keeping enough bikes in the right places is one of the toughest daily tasks for operators. Because commuters tend to ride downhill or toward business districts in the morning and in the opposite direction in the evening, docks or zones in some neighbourhoods quickly fill up while others run empty. To rebalance the fleet, operators deploy vans or cargo bikes to move bicycles around, adding fuel or labour expenses that scale with city size."
+      },
+      {
+        "label": "C",
+        "text": "Vandalism, theft, and rough handling also affect fleet longevity. Bicycles left outdoors year-round face weather wear on chains, brakes, and tyres, while occasional misuse—such as forcing locks or abandoning bikes outside permitted areas—increases repair bills. Many programmes now use heavier, custom-built frames with non-standard parts and puncture-resistant tyres to make components less attractive to thieves and more durable under daily street use."
+      },
+      {
+        "label": "D",
+        "text": "Safety and street design strongly influence whether casual riders stick with bike sharing. Dedicated cycle lanes and lower speed limits on neighbourhood streets encourage people who feel nervous riding beside fast motor traffic, whereas fragmented bike paths often leave beginners hesitant. Cities that pair bike-sharing launches with protected lanes typically see steadier repeat ridership than those that introduce bikes without changing road layouts."
+      },
+      {
+        "label": "E",
+        "text": "Funding models vary widely across municipalities. Some systems operate through advertising contracts where an outdoor media firm runs the bikes in exchange for street-furniture ad rights, while others rely on user fees, municipal subsidies, or corporate sponsorships. When ridership dips in winter or subsidy agreements expire, operators may adjust pricing tiers or trim fleet sizes to keep budgets balanced."
+      }
+    ],
+    "questions": [
+      {
+        "number": 1,
+        "type": "tfng",
+        "prompt": "Newer bike-sharing systems always require riders to return bicycles to physical docking stations.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "FALSE",
+        "evidenceParagraph": "A",
+        "explanation": "Новые системы бывают бездокерными (dockless) с GPS-замками."
+      },
+      {
+        "number": 2,
+        "type": "tfng",
+        "prompt": "Morning commuting patterns can cause uneven bike distribution across different parts of a city.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "B",
+        "explanation": "Утренние поездки приводят к тому, что одни зоны переполняются, а другие пустеют."
+      },
+      {
+        "number": 3,
+        "type": "tfng",
+        "prompt": "Custom-made components are sometimes chosen to reduce the appeal of parts to thieves.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "C",
+        "explanation": "Нестандартные детали (non-standard parts) снижают интерес воров к разбору велосипедов."
+      },
+      {
+        "number": 4,
+        "type": "tfng",
+        "prompt": "Protected cycle lanes help attract more cautious or less experienced cyclists.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "D",
+        "explanation": "Выделенные велополосы помогают тем, кто опасается ехать рядом с плотным автопотоком."
+      },
+      {
+        "number": 5,
+        "type": "tfng",
+        "prompt": "All bike-sharing schemes are funded entirely through ticket sales to riders.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "FALSE",
+        "evidenceParagraph": "E",
+        "explanation": "Финансирование также идёт за счёт рекламы, субсидий и спонсорства."
+      },
+      {
+        "number": 6,
+        "type": "tfng",
+        "prompt": "Winter weather reduces bike-sharing usage in every city that runs a scheme.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "NOT GIVEN",
+        "evidenceParagraph": "E",
+        "explanation": "Упоминается снижение поездок зимой, но без утверждения про каждый город."
+      },
+      {
+        "number": 7,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Modern dockless bikes commonly use GPS locks and ________.",
+        "answer": "smartphone apps",
+        "acceptedAnswers": ["smartphone apps"],
+        "evidenceParagraph": "A",
+        "explanation": "Управление через GPS-замки и приложения на смартфоне."
+      },
+      {
+        "number": 8,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Staff use vans or ________ to redistribute bikes between areas.",
+        "answer": "cargo bikes",
+        "acceptedAnswers": ["cargo bikes"],
+        "evidenceParagraph": "B",
+        "explanation": "Перевозка велосипедов фургонами или грузовыми велосипедами."
+      },
+      {
+        "number": 9,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Exposure to weather affects parts like brakes, tyres, and ________.",
+        "answer": "chains",
+        "acceptedAnswers": ["chains"],
+        "evidenceParagraph": "C",
+        "explanation": "Износ от погоды затрагивает цепи, тормоза и покрышки."
+      },
+      {
+        "number": 10,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Fleets often feature ________ tyres to resist flat tyres on streets.",
+        "answer": "puncture-resistant",
+        "acceptedAnswers": ["puncture-resistant"],
+        "evidenceParagraph": "C",
+        "explanation": "Антипрокольные покрышки (puncture-resistant tyres)."
+      },
+      {
+        "number": 11,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Incomplete or ________ paths can make beginners reluctant to ride.",
+        "answer": "fragmented",
+        "acceptedAnswers": ["fragmented"],
+        "evidenceParagraph": "D",
+        "explanation": "Фрагментированные/прерывистые велодорожки (fragmented bike paths)."
+      },
+      {
+        "number": 12,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Some operators gain ad rights on ________ in exchange for running bikes.",
+        "answer": "street-furniture",
+        "acceptedAnswers": ["street-furniture"],
+        "evidenceParagraph": "E",
+        "explanation": "Права на размещение рекламы на уличной мебели (street-furniture)."
+      },
+      {
+        "number": 13,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "If subsidies end, cities may change fare levels or reduce ________.",
+        "answer": "fleet sizes",
+        "acceptedAnswers": ["fleet sizes"],
+        "evidenceParagraph": "E",
+        "explanation": "Сокращение размеров парка (trim fleet sizes)."
+      }
+    ]
+  },
+  {
+    "id": "p1-004",
+    "passageSlot": 1,
+    "topic": "Healthcare & Supply Chains",
+    "title": "Cold-Chain Logistics for Medicines",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Many vaccines, insulin batches, and diagnostic reagents lose effectiveness if exposed to temperatures outside a narrow range during transport or storage. Maintaining that required temperature window from factory to clinic is known as the cold chain. While frozen products must stay well below zero, other medicines can be spoiled just as easily by accidental freezing as by overheating, making temperature control a two-way challenge rather than a simple cooling task."
+      },
+      {
+        "label": "B",
+        "text": "Packaging choices play a major role in protecting sensitive shipments along long routes. Insulated containers lined with phase-change materials or dry ice can hold steady temperatures for days, provided lids stay sealed and payloads are packed correctly. However, heavier insulation increases shipping weight and volume, which raises air-freight charges and limits how much medical cargo fits on a single flight or delivery van."
+      },
+      {
+        "label": "C",
+        "text": "Monitoring has become far more detailed as digital sensors have grown cheaper. Modern data loggers and wireless trackers record ambient temperature, light exposure, and shock at frequent intervals, alerting logistics teams if a box warms up during a customs delay or tarmac transfer. Rather than discovering spoilage only when a shipment arrives, coordinators can reroute stock or quarantine affected batches early."
+      },
+      {
+        "label": "D",
+        "text": "Last-mile delivery to remote clinics remains a frequent weak point. Rural health posts may experience unreliable electricity grids, meaning backup generators or solar-powered fridges are needed to keep supplies safe once they leave central depots. Without clear handover procedures and trained staff at each stop, a shipment that travelled safely for thousands of kilometres can still be compromised in the final hour."
+      },
+      {
+        "label": "E",
+        "text": "Because waste from spoiled medical stock is costly and environmentally undesirable, health agencies invest heavily in staff training and contingency planning. Standardised checklists, pre-qualified packaging, and backup cold storage help ensure scarce supplies are not discarded unnecessarily. In practice, dependable cold-chain performance relies as much on human routines and clear communication as on advanced equipment."
+      }
+    ],
+    "questions": [
+      {
+        "number": 1,
+        "type": "tfng",
+        "prompt": "Some cold-chain medicines can be damaged if their temperature drops too low and freezes.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "A",
+        "explanation": "Случайное замораживание способно испортить ряд препаратов так же, как перегрев."
+      },
+      {
+        "number": 2,
+        "type": "tfng",
+        "prompt": "Better insulation always reduces the cost of shipping medical goods by air.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "FALSE",
+        "evidenceParagraph": "B",
+        "explanation": "Более тяжёлая изоляция повышает вес/объём и увеличивает расходы на авиаперевозку."
+      },
+      {
+        "number": 3,
+        "type": "tfng",
+        "prompt": "Digital sensors can help detect temperature excursions before a shipment reaches its destination.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "C",
+        "explanation": "Датчики оповещают о отклонениях в пути, позволяя вовремя принять меры до прибытия."
+      },
+      {
+        "number": 4,
+        "type": "tfng",
+        "prompt": "Backup power sources can be essential at rural clinics when local electricity is unstable.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "D",
+        "explanation": "При перебоях в сети в удалённых пунктах нужны генераторы или солнечные холодильники."
+      },
+      {
+        "number": 5,
+        "type": "tfng",
+        "prompt": "Most cold-chain failures happen during long-distance flights rather than final local delivery.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "NOT GIVEN",
+        "evidenceParagraph": "D",
+        "explanation": "Отмечена уязвимость последней мили, но доли сбоев по этапам не сравниваются."
+      },
+      {
+        "number": 6,
+        "type": "tfng",
+        "prompt": "Staff training is considered important alongside technical equipment for preventing waste.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "E",
+        "explanation": "Надёжность зависит от регламентов и обучения персонала наравне с техникой."
+      },
+      {
+        "number": 7,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Keeping medicines within a set temperature range is called the ________.",
+        "answer": "cold chain",
+        "acceptedAnswers": ["cold chain"],
+        "evidenceParagraph": "A",
+        "explanation": "Поддержание нужного температурного режима называется cold chain."
+      },
+      {
+        "number": 8,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Boxes may use ________ or dry ice to maintain temperatures.",
+        "answer": "phase-change materials",
+        "acceptedAnswers": ["phase-change materials"],
+        "evidenceParagraph": "B",
+        "explanation": "Используются материалы с фазовым переходом (phase-change materials) или сухой лёд."
+      },
+      {
+        "number": 9,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Bulky insulation can raise ________ costs and reduce cargo capacity.",
+        "answer": "air-freight",
+        "acceptedAnswers": ["air-freight"],
+        "evidenceParagraph": "B",
+        "explanation": "Увеличивает расходы на авиадоставку (air-freight charges)."
+      },
+      {
+        "number": 10,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Sensors can warn teams about delays at customs or ________ transfers.",
+        "answer": "tarmac",
+        "acceptedAnswers": ["tarmac"],
+        "evidenceParagraph": "C",
+        "explanation": "Перегрузки на лётном поле (tarmac transfer)."
+      },
+      {
+        "number": 11,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Unstable ________ can threaten storage at distant clinics.",
+        "answer": "electricity grids",
+        "acceptedAnswers": ["electricity grids"],
+        "evidenceParagraph": "D",
+        "explanation": "Нестабильные электросети (electricity grids)."
+      },
+      {
+        "number": 12,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Clear ________ routines help protect medicine right before use.",
+        "answer": "handover",
+        "acceptedAnswers": ["handover"],
+        "evidenceParagraph": "D",
+        "explanation": "Чёткие процедуры передачи (handover procedures)."
+      },
+      {
+        "number": 13,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Agencies rely on ________ and pre-qualified packaging to cut losses.",
+        "answer": "contingency planning",
+        "acceptedAnswers": ["contingency planning"],
+        "evidenceParagraph": "E",
+        "explanation": "Резервное планирование (contingency planning)."
+      }
+    ]
+  },
+  {
+    "id": "p1-005",
+    "passageSlot": 1,
+    "topic": "Energy & Municipal Systems",
+    "title": "District Heating Networks",
+    "paragraphs": [
+      {
+        "label": "A",
+        "text": "Rather than placing a separate boiler or furnace inside every building, district heating generates heat at a central plant and distributes hot water or steam through insulated underground pipes to multiple homes, offices, and factories. The concept has long been common in colder climates where heating is needed for much of the year, and it allows operators to draw heat from diverse sources, including combined heat-and-power stations, waste incinerators, and industrial processes."
+      },
+      {
+        "label": "B",
+        "text": "Connecting many buildings to a single network brings efficiency advantages when demand is concentrated. Large central boilers or heat pumps generally operate at higher efficiency than dozens of small household units, and excess heat from factories or data centres—which would otherwise be vented into the air or water—can be captured for useful warmth. Over time, this can lower fuel use per household and simplify routine maintenance."
+      },
+      {
+        "label": "C",
+        "text": "Building the underground pipe network is capital-intensive and disruptive in the short term. Trenching along busy streets requires road closures, utility relocation, and pavement restoration, while heat is inevitably lost through pipe walls if insulation is ageing or underground water seeps into conduits. Consequently, district heating is most cost-effective in compact urban areas with high heat density rather than widely spaced suburbs."
+      },
+      {
+        "label": "D",
+        "text": "Many older systems are shifting toward lower operating temperatures to accommodate cleaner heat sources. Traditional steam or very hot water networks lose more heat in transit and pair less efficiently with modern heat pumps than moderate-temperature water loops. Upgrading existing networks gradually—by lowering supply temperatures and improving pipe insulation—lets cities integrate renewable heat without tearing up every street at once."
+      },
+      {
+        "label": "E",
+        "text": "Consumer billing and pricing fairness also matter as networks expand. Residents connected to a shared system cannot always switch heating suppliers easily, so regulators and utilities must set transparent tariffs and metering rules. When households see clear billing linked to actual heat use alongside reliable indoor comfort, public acceptance of district heating tends to be much stronger."
+      }
+    ],
+    "questions": [
+      {
+        "number": 1,
+        "type": "tfng",
+        "prompt": "District heating supplies heat from a central source to several buildings via underground pipes.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "A",
+        "explanation": "Тепло подаётся от центрального источника по подземным трубам в разные здания."
+      },
+      {
+        "number": 2,
+        "type": "tfng",
+        "prompt": "Industrial waste heat is sometimes captured and fed into district heating systems.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "A",
+        "explanation": "Источниками тепла могут выступать промышленные процессы и избыточное тепло."
+      },
+      {
+        "number": 3,
+        "type": "tfng",
+        "prompt": "Digging trenches for new pipes rarely causes inconvenience to city traffic.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "FALSE",
+        "evidenceParagraph": "C",
+        "explanation": "Прокладка траншей требует перекрытий дорог и создаёт неудобства."
+      },
+      {
+        "number": 4,
+        "type": "tfng",
+        "prompt": "District heating usually works best economically in areas where buildings are densely grouped.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "C",
+        "explanation": "Наиболее выгодно в компактной застройке с высокой плотностью тепловой нагрузки."
+      },
+      {
+        "number": 5,
+        "type": "tfng",
+        "prompt": "Lowering water temperatures in older networks can improve compatibility with modern heat pumps.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "TRUE",
+        "evidenceParagraph": "D",
+        "explanation": "Более умеренные температуры лучше сочетаются с современными тепловыми насосами."
+      },
+      {
+        "number": 6,
+        "type": "tfng",
+        "prompt": "Residents in district-heated buildings can switch between competing heat suppliers as easily as changing mobile plans.",
+        "options": ["TRUE", "FALSE", "NOT GIVEN"],
+        "answer": "FALSE",
+        "evidenceParagraph": "E",
+        "explanation": "Жильцы подключённых зданий не могут легко сменить поставщика тепла."
+      },
+      {
+        "number": 7,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Heat can come from power plants, factories, or ________.",
+        "answer": "waste incinerators",
+        "acceptedAnswers": ["waste incinerators"],
+        "evidenceParagraph": "A",
+        "explanation": "Упоминаются ТЭЦ, промышленность и мусоросжигательные установки (waste incinerators)."
+      },
+      {
+        "number": 8,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Central equipment often runs more efficiently than small ________ units.",
+        "answer": "household",
+        "acceptedAnswers": ["household"],
+        "evidenceParagraph": "B",
+        "explanation": "Крупные источники эффективнее мелких бытовых установок (household units)."
+      },
+      {
+        "number": 9,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Warmth can escape if insulation is old or ________ enters underground conduits.",
+        "answer": "underground water",
+        "acceptedAnswers": ["underground water"],
+        "evidenceParagraph": "C",
+        "explanation": "Потери тепла связаны со старой изоляцией или грунтовой водой (underground water)."
+      },
+      {
+        "number": 10,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Systems suit dense areas with high ________.",
+        "answer": "heat density",
+        "acceptedAnswers": ["heat density"],
+        "evidenceParagraph": "C",
+        "explanation": "Высокая плотность тепловой нагрузки (heat density)."
+      },
+      {
+        "number": 11,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Cities can lower ________ and upgrade insulation gradually.",
+        "answer": "supply temperatures",
+        "acceptedAnswers": ["supply temperatures", "temperatures"],
+        "evidenceParagraph": "D",
+        "explanation": "Снижение температуры подачи (lowering supply temperatures)."
+      },
+      {
+        "number": 12,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Clear rules on tariffs and ________ support trust.",
+        "answer": "metering",
+        "acceptedAnswers": ["metering"],
+        "evidenceParagraph": "E",
+        "explanation": "Прозрачные тарифы и правила учёта (metering rules)."
+      },
+      {
+        "number": 13,
+        "type": "completion",
+        "maxWords": 2,
+        "prompt": "Reliable comfort and transparent costs boost ________.",
+        "answer": "public acceptance",
+        "acceptedAnswers": ["public acceptance"],
+        "evidenceParagraph": "E",
+        "explanation": "Повышает принятие системы жителями (public acceptance)."
+      }
+    ]
+  }
+]
