@@ -288,36 +288,39 @@ export default function App() {
   const wordProgressPercent = Math.min(100, Math.round((wordCount / minWords) * 100));
 
   return (
-    <div className="min-h-screen bg-[#09090B] text-[#F4F4F5] flex flex-col">
-      {/* Three-zone Top Navigation Bar */}
-      <header className="border-b border-white/[0.07] bg-[#09090B]/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-[1380px] items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 h-16">
-          <a
-            href="#editor-section"
-            className="font-display text-base sm:text-lg font-semibold tracking-tight text-zinc-100 whitespace-nowrap shrink-0"
-          >
-            IELTS Studio
-          </a>
+    <div className="min-h-screen bg-white text-black dark:bg-[#09090B] dark:text-[#F4F4F5] flex flex-col">
+        {/* Three-zone Top Navigation Bar */}
+        <header className="border-b border-neutral-200 dark:border-white/[0.07] bg-white/90 dark:bg-[#09090B]/90 backdrop-blur-md">
+          <div className="mx-auto flex max-w-[1380px] items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 h-16">
+            <a
+              href="#editor-section"
+              className="font-display text-base sm:text-lg font-semibold tracking-tight text-black dark:text-zinc-100 whitespace-nowrap shrink-0"
+            >
+              IELTS Studio
+            </a>
 
-          <div
-            role="tablist"
-            aria-label="Раздел IELTS"
-            className="flex items-center gap-1 rounded-lg border border-white/[0.09] bg-white/[0.03] p-1"
-          >
-            {MODULES.map((module) => (
-              <button
-                key={module.id}
-                type="button"
-                role="tab"
-                aria-selected={activeModule === module.id}
-                onClick={() => setActiveModule(module.id)}
-                className={`rounded-md px-2.5 sm:px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
-                  activeModule === module.id ? 'bg-white/[0.1] text-zinc-100' : 'text-zinc-400 hover:text-zinc-100'
-                }`}
-              >
-                {module.label}
-              </button>
-            ))}
+            <div
+              role="tablist"
+              aria-label="Раздел IELTS"
+              className="flex items-center gap-1 rounded-lg border border-neutral-200 dark:border-white/[0.09] bg-neutral-100 dark:bg-white/[0.03] p-1"
+            >
+              {MODULES.map((module) => (
+                <button
+                  key={module.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeModule === module.id}
+                  onClick={() => setActiveModule(module.id)}
+                  className={`rounded-md px-2.5 sm:px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
+                    activeModule === module.id
+                      ? 'bg-white text-black shadow-xs dark:bg-white/[0.1] dark:text-zinc-100'
+                      : 'text-neutral-700 hover:text-black dark:text-zinc-400 dark:hover:text-zinc-100'
+                  }`}
+                >
+                  {module.label}
+                </button>
+              ))}
+            </div>
           </div>
           <button
   type="button"
