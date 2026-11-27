@@ -356,6 +356,7 @@ export default function App() {
             <div className="hidden md:block w-[200px]" aria-hidden="true" />
           )}
         </div>
+      </div>
       </header>
 
      {/* Main Two-Column Studio Workspace */}
