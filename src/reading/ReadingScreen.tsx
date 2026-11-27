@@ -56,10 +56,14 @@ type RowProps = {
 
 function QuestionRow({ question, value, disabled, verdict, onChange }: RowProps) {
   const border =
-    verdict === undefined ? "border-neutral-200" : verdict ? "border-emerald-500" : "border-red-500";
+    verdict === undefined
+      ? "border-neutral-200 dark:border-neutral-800"
+      : verdict
+        ? "border-emerald-500 dark:border-emerald-400"
+        : "border-red-500 dark:border-red-400";
 
   return (
-    <li className={`border-l-4 ${border} bg-white py-3 pl-4 pr-3`}>
+    <li className={`border-l-4 ${border} rounded-r bg-white py-3 pl-4 pr-3 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100`}>
       <div className="flex gap-3">
         <span className="w-6 shrink-0 font-semibold">{question.number}</span>
         <div className="flex-1">
@@ -76,6 +80,12 @@ function QuestionRow({ question, value, disabled, verdict, onChange }: RowProps)
                       checked={value === option}
                       onChange={() => onChange(option)}
                     />
+                    <span>{option}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          ) : (
                     {option}
                   </label>
                 ))}
@@ -85,7 +95,7 @@ function QuestionRow({ question, value, disabled, verdict, onChange }: RowProps)
             <CompletionPrompt question={question} value={value} disabled={disabled} onChange={onChange} />
           )}
           {verdict !== undefined && (
-            <p className={`mt-2 text-sm font-medium ${verdict ? "text-emerald-700" : "text-red-700"}`}>
+            <p className={`mt-2 text-sm font-medium ${verdict ? "text-emerald-700 dark:text-emerald-400" : "text-red-700 dark:text-red-400"}
               {verdict ? "Верно" : "Неверно"}
             </p>
           )}
@@ -117,7 +127,7 @@ function CompletionPrompt({
       autoComplete="off"
       autoCapitalize="off"
       spellCheck={false}
-      className="mx-1 w-44 border-b-2 border-neutral-400 bg-transparent px-1 focus:border-neutral-900 focus:outline-none"
+      className="mx-1 w-44 border-b-2 border-neutral-400 bg-transparent px-1 focus:border-neutral-900 focus:outline-none dark:border-neutral-600 dark:focus:border-neutral-100"
     />
   );
   if (after === undefined) {
