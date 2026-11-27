@@ -221,11 +221,11 @@ export default function ReadingScreen() {
   const done = result !== null;
 
   return (
-    <div className="mx-auto max-w-7xl p-4">
-      <header className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-neutral-200 pb-3">
+    <div className="mx-auto max-w-7xl p-4 bg-white text-black dark:bg-[#09090b] dark:text-white">
+      <header className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-neutral-200 dark:border-neutral-800 pb-3">
         <div>
-          <h1 className="text-xl font-semibold">Reading Passage 1</h1>
-          <p className="text-sm text-neutral-600">
+          <h1 className="text-xl font-semibold text-black dark:text-white">Reading Passage 1</h1>
+          <p className="text-sm text-black dark:text-white">
             Отвечено {answeredCount} из {passage.questions.length}
           </p>
         </div>
@@ -237,7 +237,11 @@ export default function ReadingScreen() {
             {formatTime(secondsLeft)}
           </span>
           {done ? (
-            <button type="button" onClick={() => void load()} className="rounded bg-neutral-900 px-4 py-2 text-white">
+            <button
+              type="button"
+              onClick={() => void load()}
+              className="rounded bg-neutral-900 px-4 py-2 text-white dark:bg-neutral-100 dark:text-black"
+            >
               Другой текст
             </button>
           ) : (
@@ -245,21 +249,21 @@ export default function ReadingScreen() {
               type="button"
               onClick={() => void handleSubmit()}
               disabled={submitting}
-              className="rounded bg-neutral-900 px-4 py-2 text-white disabled:opacity-50"
+              className="rounded bg-neutral-900 px-4 py-2 text-white disabled:opacity-50 dark:bg-neutral-100 dark:text-black"
             >
-              {submitting ? "Проверяем…" : "Сдать ответы"}
+              {submitting ? "Проверяем..." : "Сдать ответы"}
             </button>
           )}
         </div>
       </header>
 
       {result && (
-        <p className="mb-4 rounded bg-neutral-100 p-3 text-lg font-medium" role="status">
+        <p className="mb-4 rounded bg-neutral-100 p-3 text-lg font-medium dark:bg-neutral-900" role="status">
           Результат: {result.correct} из {result.total}
         </p>
       )}
       {error && (
-        <p className="mb-4 rounded bg-red-50 p-3 text-red-800" role="alert">
+        <p className="mb-3 rounded bg-red-50 p-3 text-red-800 dark:bg-red-950/50 dark:text-red-300" role="alert">
           {error}
         </p>
       )}
@@ -282,11 +286,11 @@ export default function ReadingScreen() {
             const first = group.items[0].number;
             const last = group.items[group.items.length - 1].number;
             return (
-              <div key={first} className="mb-6">
-                <h3 className="font-semibold">
-                  Questions {first}–{last}
-                </h3>
-                <p className="mb-3 text-sm text-neutral-700">{instructionFor(group)}</p>
+             <div key={first} className="mb-6">
+          <h3 className="font-semibold text-black dark:text-white">
+            Questions {first}–{last}
+          </h3>
+          <p className="mb-3 text-sm text-black dark:text-white">{instructionFor(group)}</p>
                 <ul className="space-y-2">
                   {group.items.map((q) => (
                     <QuestionRow
