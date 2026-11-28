@@ -58,6 +58,7 @@ export default function App() {
   const [activeModule, setActiveModule] = useState<AppModule>('home');
   const [taskType, setTaskType] = useState<TaskType>('task2');
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+  const [mode, setMode] = useState<'mock' | 'training'>('training'); 
     try {
       const saved = localStorage.getItem('easy9band_theme');
       if (saved === 'light' || saved === 'dark') return saved;
@@ -292,10 +293,28 @@ export default function App() {
     <HomeScreen
       theme={theme}
       onToggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))}
-      onStartModule={(mod) => setActiveModule(mod)}
+      onStartModule={(mod, m) => {
+  setMode(m);
+  setActiveModule(mod);
+}}
     />
   );
 }
+
+  if (mode === 'mock') {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-white text-black dark:bg-[#09090B] dark:text-zinc-100">
+        <p className="text-lg">Mock test: {activeModule} (скоро)</p>
+        <button
+          type="button"
+          onClick={() => { setMode('training'); setActiveModule('home'); }}
+          className="rounded-lg border px-4 py-2"
+        >
+          Назад
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white text-black dark:bg-[#09090B] dark:text-[#F4F4F5] flex flex-col">
