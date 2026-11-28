@@ -1,3 +1,4 @@
+import { MockReading } from './mock/reading/MockReading';
 import { HomeScreen, type ModuleTarget } from './components/HomeScreen';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -302,6 +303,16 @@ export default function App() {
 }
 
   if (mode === 'mock') {
+      if (activeModule === 'reading') {
+    return (
+      <MockReading
+        onExit={() => {
+          setMode('training');
+          setActiveModule('home');
+        }}
+      />
+    );
+  }
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-white text-black dark:bg-[#09090B] dark:text-zinc-100">
         <p className="text-lg">Mock test: {activeModule} (скоро)</p>
