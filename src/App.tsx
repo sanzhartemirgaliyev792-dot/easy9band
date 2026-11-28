@@ -1,3 +1,4 @@
+import { HomeScreen, type ModuleTarget } from './components/HomeScreen';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   CheckCircle2,
@@ -17,6 +18,7 @@ import { EvaluationPanel } from './components/EvaluationPanel';
 import { ListeningTest } from './components/ListeningTest';
 import ReadingScreen from './reading/ReadingScreen';
 
+const [activeModule, setActiveModule] = useState<'home' | ModuleTarget>('home');
 const DRAFT_STORAGE_PREFIX = 'ielts_essay_draft_';
 const RESULTS_STORAGE_KEY = 'ielts_evaluation_results_v1';
 
@@ -45,7 +47,7 @@ function formatTableForPrompt(topic: IeltsTopic): string {
   return `${headerLine}\n${rows}`;
 }
 
-type AppModule = 'writing' | 'reading' | 'listening';
+type AppModule = 'home' | 'writing' | 'reading' | 'listening';
 
 const MODULES: { id: AppModule; label: string }[] = [
   { id: 'writing', label: 'Writing' },
@@ -54,7 +56,7 @@ const MODULES: { id: AppModule; label: string }[] = [
 ];
 
 export default function App() {
-  const [activeModule, setActiveModule] = useState<AppModule>('writing');
+  const [activeModule, setActiveModule] = useState<AppModule>('home');
   const [taskType, setTaskType] = useState<TaskType>('task2');
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     try {
@@ -286,18 +288,28 @@ export default function App() {
   const timerIsLow = secondsLeft > 0 && secondsLeft <= 120;
   const timerExpired = secondsLeft === 0;
   const wordProgressPercent = Math.min(100, Math.round((wordCount / minWords) * 100));
+  if (activeModule === 'home') {
+    return (
+      <HomeScreen
+        theme={theme}
+        onToggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))}
+        onStartModule={(mod) => setActiveModule(mod)}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white text-black dark:bg-[#09090B] dark:text-[#F4F4F5] flex flex-col">
       {/* Three-zone Top Navigation Bar */}
       <header className="border-b border-neutral-200 dark:border-white/[0.07] bg-white/90 dark:bg-[#09090B]/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-[1380px] items-center justify-between gap-4 sm:gap-8 px-4 sm:px-6 lg:px-8 h-16">
-          <a
-            href="#editor-section"
-            className="font-display text-base sm:text-lg font-semibold tracking-tight text-black dark:text-zinc-100 whitespace-nowrap shrink-0"
+          <button
+            type="button"
+            onClick={() => setActiveModule('home')}
+            className="font-display text-base sm:text-lg font-semibold tracking-tight text-black dark:text-zinc-100 whitespace-nowrap shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
           >
-            IELTS Studio
-          </a>
+            easy9band
+          </button>
 
           <div
             role="tablist"
