@@ -2,6 +2,7 @@ import { MockReading } from './mock/reading/MockReading';
 import { HomeScreen, type ModuleTarget } from './components/HomeScreen';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  ArrowLeft,
   CheckCircle2,
   Edit3,
   Loader2,
@@ -332,13 +333,19 @@ export default function App() {
       {/* Three-zone Top Navigation Bar */}
       <header className="border-b border-neutral-200 dark:border-white/[0.07] bg-white/90 dark:bg-[#09090B]/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-[1380px] items-center justify-between gap-4 sm:gap-8 px-4 sm:px-6 lg:px-8 h-16">
-          <button
-            type="button"
-            onClick={() => setActiveModule('home')}
-            className="font-display text-base sm:text-lg font-semibold tracking-tight text-black dark:text-zinc-100 whitespace-nowrap shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
-          >
-            easy9band
-          </button>
+         <div className="flex items-center gap-3 shrink-0">
+  <button
+    type="button"
+    onClick={() => setActiveModule('home')}
+    className="inline-flex items-center gap-1.5 rounded-lg border border-neutral-300 bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-900 transition hover:bg-neutral-200 sm:text-sm dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800 whitespace-nowrap cursor-pointer"
+  >
+    <ArrowLeft className="h-4 w-4" />
+    <span>Назад</span>
+  </button>
+  <span className="font-display text-base sm:text-lg font-semibold tracking-tight whitespace-nowrap">
+    easy9band
+  </span>
+</div>
 
           <div
             role="tablist"
