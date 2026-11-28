@@ -56,9 +56,9 @@ const MODULES: { id: AppModule; label: string }[] = [
 
 export default function App() {
   const [activeModule, setActiveModule] = useState<AppModule>('home');
+  const [mode, setMode] = useState<'mock' | 'training'>('training');
   const [taskType, setTaskType] = useState<TaskType>('task2');
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-  const [mode, setMode] = useState<'mock' | 'training'>('training'); 
     try {
       const saved = localStorage.getItem('easy9band_theme');
       if (saved === 'light' || saved === 'dark') return saved;
