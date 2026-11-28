@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowLeft, CheckCircle2, Clock, XCircle } from 'lucide-react';
+import { CheckCircle2, Clock, XCircle } from 'lucide-react';
 import { VARIANT_1 } from './variant1';
 import type { Group, Question } from './types';
 
@@ -312,16 +312,7 @@ export function MockReading({ onExit }: { onExit: () => void }) {
     <div className={`${shell} flex h-screen flex-col`}>
       {/* Верхняя панель */}
       <header className="flex items-center justify-between gap-3 border-b border-neutral-200 dark:border-white/[0.07] px-4 py-3">
-        <button
-          type="button"
-          onClick={() => {
-            if (window.confirm('Выйти из теста? Ответы и таймер сохранятся, можно вернуться.')) onExit();
-          }}
-          className="inline-flex items-center gap-1.5 text-sm text-neutral-700 dark:text-zinc-400 cursor-pointer"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          <span className="hidden sm:inline">Выйти</span>
-        </button>
+       <div className="w-16" aria-hidden="true" />
 
         <div
           className={`inline-flex items-center gap-2 font-mono-tabular text-lg font-semibold ${
