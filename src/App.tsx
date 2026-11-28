@@ -18,7 +18,6 @@ import { EvaluationPanel } from './components/EvaluationPanel';
 import { ListeningTest } from './components/ListeningTest';
 import ReadingScreen from './reading/ReadingScreen';
 
-const [activeModule, setActiveModule] = useState<'home' | ModuleTarget>('home');
 const DRAFT_STORAGE_PREFIX = 'ielts_essay_draft_';
 const RESULTS_STORAGE_KEY = 'ielts_evaluation_results_v1';
 
@@ -56,7 +55,7 @@ const MODULES: { id: AppModule; label: string }[] = [
 ];
 
 export default function App() {
-  const [activeModule, setActiveModule] = useState<AppModule>('writing');
+  const [activeModule, setActiveModule] = useState<AppModule>('home');
   const [taskType, setTaskType] = useState<TaskType>('task2');
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     try {
@@ -288,15 +287,15 @@ export default function App() {
   const timerIsLow = secondsLeft > 0 && secondsLeft <= 120;
   const timerExpired = secondsLeft === 0;
   const wordProgressPercent = Math.min(100, Math.round((wordCount / minWords) * 100));
-  //if (activeModule === 'home') {
-    //return (
-      //<HomeScreen
-        //theme={theme}
-        //onToggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))}
-        //onStartModule={(mod) => setActiveModule(mod)}
-      ///>
-    //);
-  //}
+  if (activeModule === 'home') {
+  return (
+    <HomeScreen
+      theme={theme}
+      onToggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))}
+      onStartModule={(mod) => setActiveModule(mod)}
+    />
+  );
+}
 
   return (
     <div className="min-h-screen bg-white text-black dark:bg-[#09090B] dark:text-[#F4F4F5] flex flex-col">
